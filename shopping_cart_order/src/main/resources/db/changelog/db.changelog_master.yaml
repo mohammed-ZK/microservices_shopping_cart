@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/create_order_schema.xml
+#  - include:
+#      file: db/changelog/insert_order_data.xml
+#  - include:
+#      file: db/changelog/insert-company-data.xml

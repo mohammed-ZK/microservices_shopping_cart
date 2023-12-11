@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/create_cart_schema.xml
+  - include:
+      file: db/changelog/create_product_schema.xml
+  - include:
+      file: db/changelog/insert_product_data.xml
+  
+#  - include:
+#      file: db/changelog/insert-company-data.xml

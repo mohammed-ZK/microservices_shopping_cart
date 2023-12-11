@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+						http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+						http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+	<changeSet author="mohammed" id="3">
+		<createTable tableName="products">
+			<column name="id" type=" int" autoIncrement=" true">
+				<constraints nullable=" false" primaryKey=" true" />
+			</column>
+			<column name="name" type=" varchar(100)">
+			</column>
+			<column name="description" type="varchar(100)">
+			</column>
+			<column name="price" type="int">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<rollback>
+			<dropTable tableName="products" />
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>

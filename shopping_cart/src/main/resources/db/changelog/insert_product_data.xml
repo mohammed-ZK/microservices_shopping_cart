@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+						http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+						http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+	<changeSet author="mohammed" id="service-1.1-2019-01-09-03">
+		<insert tableName="products">
+			<column name="id" valueNumeric="1" />
+			<column name="name" value="watch" />
+			<column name="description" value="aa" />
+			<column name="price" value="2000" />
+		</insert>
+		<insert tableName="products">
+			<column name="id" valueNumeric="2" />
+			<column name="name" value="TV" />
+			<column name="description" value="bb" />
+			<column name="price" value="3000" />
+		</insert>
+		<insert tableName="products">
+			<column name="id" valueNumeric="3" />
+			<column name="name" value="phone" />
+			<column name="description" value="cc" />
+			<column name="price" value="4000" />
+		</insert>
+		<!--<insert tableName="products">
+			<column name="id" valueNumeric="4" />
+			<column name="name" value="Labtop" />
+			<column name="description" value="dd" />
+			<column name="price" value="5000" />
+		</insert>
+		<insert tableName="products">
+			<column name="id" valueNumeric="6" />
+			<column name="name" value="screen" />
+			<column name="description" value="ee" />
+			<column name="price" value="6000" />
+		</insert>-->
+	</changeSet>
+</databaseChangeLog>
