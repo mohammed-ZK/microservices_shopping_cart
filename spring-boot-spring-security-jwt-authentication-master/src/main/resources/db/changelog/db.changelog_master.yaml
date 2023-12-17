@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/create_role_schema.xml
+  - include:
+      file: db/changelog/insert_role_data.xml
+#  - include:
+#      file: db/changelog/insert-company-data.xml

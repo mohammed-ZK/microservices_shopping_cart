@@ -1,13 +1,17 @@
 package com.example.api_gateway_server.entity;
 
+import java.sql.Timestamp;
+
 public class Audit {
 	private Long id;
 
-	private String httpServletRequest;
+	private String request;
 
-	private String httpServletResponse;
+	private String response;
+
+	private Timestamp time_stamp;
 	
-	private int httpCode;
+	private int http_code;
 
 	public Audit() {
 		super();
@@ -21,36 +25,50 @@ public class Audit {
 		this.id = id;
 	}
 
-	public String getHttpServletRequest() {
-		return httpServletRequest;
+	public String getRequest() {
+		return request;
 	}
 
-	public void setHttpServletRequest(String httpServletRequest) {
-		this.httpServletRequest = httpServletRequest;
+	public void setRequest(String request) {
+		this.request = request;
 	}
 
-	public String getHttpServletResponse() {
-		return httpServletResponse;
+	public String getResponse() {
+		return response;
 	}
 
-	public void setHttpServletResponse(String httpServletResponse) {
-		this.httpServletResponse = httpServletResponse;
+	public void setResponse(String response) {
+		this.response = response;
 	}
 
-	public Audit(String httpServletRequest, String httpServletResponse, int httpCode) {
+	public Timestamp getTime_stamp() {
+		return time_stamp;
+	}
+
+	public void setTime_stamp(Timestamp time_stamp) {
+		this.time_stamp = time_stamp;
+	}
+
+	public int getHttp_code() {
+		return http_code;
+	}
+
+	public void setHttp_code(int http_code) {
+		this.http_code = http_code;
+	}
+
+	public Audit( String request, String response, Timestamp time_stamp, int http_code) {
 		super();
-		this.httpServletRequest = httpServletRequest;
-		this.httpServletResponse = httpServletResponse;
-		this.httpCode = httpCode;
+		this.request = request;
+		this.response = response;
+		this.time_stamp = time_stamp;
+		this.http_code = http_code;
 	}
 
-	public int getHttpCode() {
-		return httpCode;
+	@Override
+	public String toString() {
+		return "Audit{" + "httpServletRequest='" + request + '\'' + ", httpServletResponse="
+				+ response + '\'' + ", httpCode=" + http_code + '}';
 	}
 
-	public void setHttpCode(int httpCode) {
-		this.httpCode = httpCode;
-	}
-
-	
 }

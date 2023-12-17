@@ -119,7 +119,7 @@ public class ExceptionHandlerControllerAdvice {
 				errorMsg = errorDetails.get(0);
 		}
 
-//		BaseResponse<Object> erroreMsg=new BaseResponse<>();
+//		BaseResponseTest<Object> erroreMsg=new BaseResponseTest<>();
 //		erroreMsg.setStatus( HttpStatus.BAD_REQUEST);
 //		erroreMsg.setMessage(errorMsg);
 		resObj.put("status", HttpStatus.BAD_REQUEST.value());

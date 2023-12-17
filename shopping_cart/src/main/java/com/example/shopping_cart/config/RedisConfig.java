@@ -13,7 +13,7 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
 
-@Configuration
+//@Configuration
 public class RedisConfig {
   @Value("${redis.host}")
   private String redisHost;

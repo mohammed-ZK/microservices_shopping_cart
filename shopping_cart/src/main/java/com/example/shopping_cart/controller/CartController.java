@@ -59,8 +59,4 @@ public class CartController {
 		return new BaseResponse<>();
 	}
 
-	@GetMapping("test")
-	public String getCartIdAndUserId() throws Exception {
-		return "hello";
-	}
 }

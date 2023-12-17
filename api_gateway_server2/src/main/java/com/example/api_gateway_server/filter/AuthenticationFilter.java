@@ -27,12 +27,15 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 	private JwtUtil jwtUtil;
 
 	public AuthenticationFilter() {
+
 		super(Config.class);
+
+		log.info("=======>3");
 	}
 
 	@Override
 	public GatewayFilter apply(Config config) {
-		log.debug("hi the request???????");
+		log.debug("4");
 		return ((exchange, chain) -> {
 			if (validator.isSecured.test(exchange.getRequest())) {
 				// header contains token or not

@@ -23,6 +23,8 @@ public class JwtUtil {
 	public static final String SECRET = "======================BezKoder=Spring===========================";
 
 	public void validateToken(final String token) {
+
+		logger.info("=======>5");
 //		log.debug("hello I am 2 ");
 //		Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token);
 		    try {

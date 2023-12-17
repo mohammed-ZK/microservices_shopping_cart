@@ -14,13 +14,13 @@ public class Audit {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String httpServletRequest;
+	private String request;
 
-	private String httpServletResponse;
+	private String response;
 
-	private Timestamp date;
+	private Timestamp time_stamp;
 	
-	private int httpStatus;
+	private int http_code;
 
 	public Audit() {
 		super();
@@ -34,36 +34,49 @@ public class Audit {
 		this.id = id;
 	}
 
-	public String getHttpServletRequest() {
-		return httpServletRequest;
+	public String getRequest() {
+		return request;
 	}
 
-	public void setHttpServletRequest(String httpServletRequest) {
-		this.httpServletRequest = httpServletRequest;
+	public void setRequest(String request) {
+		this.request = request;
 	}
 
-	public String getHttpServletResponse() {
-		return httpServletResponse;
+	public String getResponse() {
+		return response;
 	}
 
-	public void setHttpServletResponse(String httpServletResponse) {
-		this.httpServletResponse = httpServletResponse;
+	public void setResponse(String response) {
+		this.response = response;
 	}
 
-	public Timestamp getDate() {
-		return date;
+	public Timestamp getTime_stamp() {
+		return time_stamp;
 	}
 
-	public void setDate(Timestamp date) {
-		this.date = date;
+	public void setTime_stamp(Timestamp time_stamp) {
+		this.time_stamp = time_stamp;
 	}
 
-	public int getHttpStatus() {
-		return httpStatus;
+	public int getHttp_code() {
+		return http_code;
 	}
 
-	public void setHttpStatus(int httpStatus) {
-		this.httpStatus = httpStatus;
+	public void setHttp_code(int http_code) {
+		this.http_code = http_code;
 	}
-	
+
+	public Audit( String request, String response, Timestamp time_stamp, int http_code) {
+		super();
+		this.request = request;
+		this.response = response;
+		this.time_stamp = time_stamp;
+		this.http_code = http_code;
+	}
+//	@Override
+//	public String toString() {
+//		return "Audit{" + "httpServletRequest='" + httpServletRequest + '\'' + ", httpServletResponse="
+//				+ httpServletResponse + '\'' + ", httpCode=" + httpCode + '}';
+//	}
+
 }

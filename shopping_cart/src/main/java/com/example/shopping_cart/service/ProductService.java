@@ -24,7 +24,7 @@ import com.example.shopping_cart.repository.CartRepository;
 import com.example.shopping_cart.repository.ProductRepository;
 
 @Service
-@EnableCaching
+//@EnableCaching
 public class ProductService {
 
 	private static final Logger log = LoggerFactory.getLogger(ProductService.class);
@@ -37,7 +37,7 @@ public class ProductService {
 
 	private ProductMapper productMapper = new ProductMapperImpl();
 
-	@CacheEvict(key = "#root.methodName", value = "AllProoducts", allEntries = true)
+//	@CacheEvict(key = "#root.methodName", value = "AllProoducts", allEntries = true)
 	public BaseResponse<ProductDto> insert(Product products) throws ProductException {
 		log.info("======>" + products.getName());
 
@@ -50,7 +50,7 @@ public class ProductService {
 
 	}
 
-	@Cacheable(key = "#root.methodName", value = "AllProoducts")
+//	@Cacheable(key = "#root.methodName", value = "AllProoducts")
 	public List<ProductDto> getProducts() {
 
 		List<Product> products = productRepository.findAll();
@@ -79,7 +79,7 @@ public class ProductService {
 		return baseResponse;
 	}
 
-	@CacheEvict(key = "#root.methodName", value = "AllProoducts", allEntries = true)
+//	@CacheEvict(key = "#root.methodName", value = "AllProoducts", allEntries = true)
 	public BaseResponse<Void> deleteProduct(Long id) throws ProductException {
 		try {
 			productRepository.deleteById(id);
@@ -117,7 +117,7 @@ public class ProductService {
 
 			return new BaseResponse<>();
 		} catch (Exception e) {
-			throw new ProductException("the Cart or Product is not found");
+			throw new ProductException("the CartTest or ProductTest is not found");
 		}
 	}
 
@@ -151,7 +151,7 @@ public class ProductService {
 
 			return new BaseResponse<>();
 		} catch (Exception e) {
-			throw new ProductException("the Cart or Product is not found");
+			throw new ProductException("the CartTest or ProductTest is not found");
 		}
 
 	}

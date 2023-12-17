@@ -1,4 +1,4 @@
-package com.example.api_gateway_server.config;
+package com.example.api_gateway_server.configTest;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -36,9 +36,9 @@ import jakarta.servlet.http.HttpServletResponse;
 //}
 //
 //@Configuration
-//public class LoggingFilter extends OncePerRequestFilter {
+//public class LoggingFilterTest extends OncePerRequestFilter {
 //
-//	private static final Logger LOGGER = LoggerFactory.getLogger(LoggingFilter.class);
+//	private static final Logger LOGGER = LoggerFactory.getLogger(LoggingFilterTest.class);
 //
 //	@Override
 //	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

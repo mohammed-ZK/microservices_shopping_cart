@@ -27,16 +27,16 @@ public class RabbitMQProducer {
 	@Autowired
 	private Queue queue;
 
-//	public RabbitMQProducer(RabbitTemplate rabbitTemplate) {
+//	public RabbitMQProducerTest(RabbitTemplate rabbitTemplate) {
 //		super();
 //		this.rabbitTemplate = rabbitTemplate;
 //	}
 
-	public void sendMessage(Audit order) {
-		log.info(order.getHttpServletRequest() + "====>" + order.getHttpServletResponse());
-		String message = order.getHttpServletRequest() + "," + order.getHttpServletResponse()+","+order.getHttpCode();
-		log.info(message);
-		jmsTemplate.convertAndSend(queue, message);
+	public void sendMessage(String order) {
+//		log.info(order.getHttpServletRequest() + "====>" + order.getHttpServletResponse());
+//		String message = order.getHttpServletRequest() + "&&" + order.getHttpServletResponse()+"&&"+order.getHttpCode();
+//		log.info(message);
+		jmsTemplate.convertAndSend(queue,order);
 	}
 
 }

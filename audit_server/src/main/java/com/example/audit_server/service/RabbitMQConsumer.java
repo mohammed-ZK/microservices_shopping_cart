@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.audit_server.entity.Audit;
 import com.example.audit_server.exception.AuditServiceException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class RabbitMQConsumer {
@@ -23,25 +26,41 @@ public class RabbitMQConsumer {
 //	@RabbitListener(queues = "${rabbitmq.queue.name}")
 	@JmsListener(destination = "standalone.queue")
 	public void counsumer(String message) throws AuditServiceException {
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		Audit audit = new Audit();
-
-		String[] arrOfStr = message.split(",", 3);
-
-		for (String a : arrOfStr)
-			log.info("=====>" + a);
-
-		audit.setHttpServletRequest(arrOfStr[0]);
-		audit.setHttpServletResponse(arrOfStr[1]);
-		audit.setHttpStatus(Integer.parseInt(arrOfStr[2]));
-		audit.setDate(timestamp);
-
-		log.info("======>" + audit.getHttpServletRequest());
-		log.info("======>" + audit.getHttpServletResponse());
-		log.info("======>" + audit.getHttpStatus());
-		log.info("======>" + audit.getDate());
-
-		auditService.insert(audit);
+//		String jsonString = ((TextMessage) message).getText();
+		 ObjectMapper objectMapper = new ObjectMapper();
+         try {
+			Audit audit = objectMapper.readValue(message, Audit.class);
+	         log.info("Code as " +message);
+	         log.info("Code as " +audit.getHttp_code());
+	         auditService.insert(audit);
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+         
+         
+//		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+//		Audit audit = new Audit();
+//
+//		String[] arrOfStr = message.split("&&", 3);
+//
+//		for (String a : arrOfStr)
+//			log.info("=====>" + a);
+//
+//		audit.setRequest(arrOfStr[0]);
+//		audit.setResponse(arrOfStr[1]);
+//		audit.setHttp_code(Integer.parseInt(arrOfStr[2]));
+//		audit.setTime_stamp(timestamp);
+//
+////		log.info("======>" + audit.getHttpServletRequest());
+////		log.info("======>" + audit.getHttpServletResponse());
+////		log.info("======>" + audit.getHttpStatus());
+////		log.info("======>" + audit.getDate());
+//
+//		auditService.insert(audit);
 
 	}
 
